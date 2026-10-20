@@ -16,7 +16,7 @@ export default async function Header() {
    const user = session?.user;
 
    return (
-      <header className="fixed inset-x-0 top-0 z-50 border-b border-stone-200/80 bg-[#fffdf8]/90 backdrop-blur-xl">
+      <header className="sticky top-0 z-50 border-b border-stone-200/80 bg-[#fffdf8]/90 backdrop-blur-xl">
          <nav className="relative mx-auto flex h-[72px] max-w-7xl items-center justify-between px-5 sm:px-8 lg:px-10">
             {/* Logo */}
             <Link

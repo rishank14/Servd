@@ -19,7 +19,7 @@ const buttonVariants = cva(
                "bg-secondary text-secondary-foreground hover:bg-secondary/80",
 
             primary:
-               "bg-orange-600 hover:bg-orange-700 text-primary-foreground disabled:bg-orange-400 disabled:cursor-not-allowed",
+               "bg-[#d13228] text-white hover:bg-[#b82820] disabled:bg-[#d13228]/50 disabled:cursor-not-allowed",
 
             ghost: "hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50",
 
