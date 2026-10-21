@@ -13,7 +13,9 @@ export const metadata: Metadata = {
    title: "Servd - AI Recipes Platform",
    description: "AI-powered recipe assistant and meal planning",
    icons: {
-      icon: "/logo.png",
+      icon: "/orange-logo.png",
+      shortcut: "/orange-logo.png",
+      apple: "/orange-logo.png",
    },
 };
 

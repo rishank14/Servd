@@ -113,7 +113,7 @@ export function AuthModal({
       <Dialog open={open} onOpenChange={onOpenChange}>
          <DialogContent
             showCloseButton
-            className="w-[calc(100vw-24px)] max-h-[calc(100dvh-24px)] overflow-y-auto rounded-[18px] border-[3px] border-black bg-white p-0 text-[#25252b] shadow-[8px_8px_0px_#000] sm:w-full sm:max-w-[520px]"
+            className="w-[calc(100vw-24px)] max-h-[calc(100dvh-24px)] overflow-y-auto rounded-[20px] border-2 border-black bg-white p-0 text-[#25252b] shadow-[7px_7px_0px_#000] sm:w-full sm:max-w-[520px]"
          >
             <div
                className={
