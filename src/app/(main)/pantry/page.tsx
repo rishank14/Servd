@@ -25,6 +25,7 @@ import {
    updatePantryItem,
 } from "@/actions/pantry.actions";
 import AddToPantryModal from "@/components/AddToPantryModal";
+import { capitalize } from "@/lib/utils";
 
 type PantryItem = {
    id: string;
@@ -129,7 +130,7 @@ export default function PantryPage() {
 
       const formData = new FormData();
       formData.append("itemId", editingId);
-      formData.append("name", editValues.name.trim());
+      formData.append("name", capitalize(editValues.name.trim()));
       formData.append("quantity", editValues.quantity.trim());
 
       await updateItem(formData);
@@ -246,7 +247,7 @@ export default function PantryPage() {
                      variant="outline"
                      className="rounded-full border-stone-200 px-3 py-1 text-sm font-normal text-stone-600"
                   >
-                     {items.length} {items.length === 1 ? "item" : "items"}
+                     {items.length} {items.length === 1 ? "Item" : "Items"}
                   </Badge>
                )}
             </div>
@@ -328,7 +329,7 @@ export default function PantryPage() {
                               <div className="flex items-start justify-between gap-3">
                                  <div className="min-w-0">
                                     <h3 className="break-words font-semibold capitalize text-stone-900">
-                                       {item.name}
+                                       {capitalize(item.name)}
                                     </h3>
                                     <p className="mt-1 text-sm text-stone-500">
                                        {item.quantity?.trim() ||
@@ -340,7 +341,7 @@ export default function PantryPage() {
                                     <button
                                        type="button"
                                        onClick={() => startEdit(item)}
-                                       aria-label={`Edit ${item.name}`}
+                                       aria-label={`Edit ${capitalize(item.name)}`}
                                        className="rounded-lg p-2 text-stone-500 transition hover:bg-orange-50 hover:text-[#d13228]"
                                     >
                                        <Pencil className="h-4 w-4" />
@@ -352,7 +353,7 @@ export default function PantryPage() {
                                           void handleDelete(item.id)
                                        }
                                        disabled={deleting}
-                                       aria-label={`Delete ${item.name}`}
+                                       aria-label={`Delete ${capitalize(item.name)}`}
                                        className="rounded-lg p-2 text-stone-500 transition hover:bg-red-50 hover:text-red-600 disabled:opacity-50"
                                     >
                                        <Trash2 className="h-4 w-4" />

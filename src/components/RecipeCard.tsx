@@ -4,6 +4,7 @@ import { Clock, Users, ChefHat } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { capitalize } from "@/lib/utils";
 import {
    Card,
    CardContent,
@@ -19,12 +20,12 @@ type Recipe = {
    strMeal?: string;
    strMealThumb?: string;
    title?: string;
-   description?: string;
-   category?: string;
-   cuisine?: string;
-   prepTime?: string | number;
-   cookTime?: string | number;
-   servings?: string | number;
+   description?: string | null;
+   category?: string | null;
+   cuisine?: string | null;
+   prepTime?: string | number | null;
+   cookTime?: string | number | null;
+   servings?: string | number | null;
    imageUrl?: string | null;
    matchPercentage?: number;
    missingIngredients?: string[];
@@ -38,12 +39,12 @@ type RecipeCardProps = {
 
 type RecipeCardData = {
    title: string;
-   description?: string;
-   category?: string;
-   cuisine?: string;
-   prepTime?: string | number;
-   cookTime?: string | number;
-   servings?: string | number;
+   description?: string | null;
+   category?: string | null;
+   cuisine?: string | null;
+   prepTime?: string | number | null;
+   cookTime?: string | number | null;
+   servings?: string | number | null;
    matchPercentage?: number;
    missingIngredients?: string[];
    image?: string | null;
@@ -208,7 +209,7 @@ export default function RecipeCard({
                         variant="outline"
                         className="border-[#d13228]/30 text-[#d13228] capitalize"
                      >
-                        {data.cuisine}
+                        {capitalize(data.cuisine)}
                      </Badge>
                   )}
 
@@ -217,7 +218,7 @@ export default function RecipeCard({
                         variant="outline"
                         className="border-stone-200 text-stone-600 capitalize"
                      >
-                        {data.category}
+                        {capitalize(data.category)}
                      </Badge>
                   )}
 
@@ -271,7 +272,7 @@ export default function RecipeCard({
                               variant="outline"
                               className="border-stone-200 bg-white text-stone-700"
                            >
-                              {ingredient}
+                              {capitalize(ingredient)}
                            </Badge>
                         ))}
                      </div>
@@ -280,13 +281,14 @@ export default function RecipeCard({
             </CardContent>
 
             <CardFooter>
-               <Button
-                  render={<Link href={data.href} />}
-                  className="w-full gap-2 rounded-full bg-[#d13228] text-white hover:bg-[#b92720]"
-               >
-                  <ChefHat className="h-4 w-4" />
-                  View Full Recipe
-               </Button>
+               <Link href={data.href} className="w-full">
+                  <Button
+                     className="w-full gap-2 rounded-full bg-[#d13228] text-white hover:bg-[#b92720]"
+                  >
+                     <ChefHat className="h-4 w-4" />
+                     View Full Recipe
+                  </Button>
+               </Link>
             </CardFooter>
          </Card>
       );
@@ -315,7 +317,7 @@ export default function RecipeCard({
                                  variant="outline"
                                  className="border-[#d13228]/30 text-[#d13228] capitalize"
                               >
-                                 {data.cuisine}
+                                 {capitalize(data.cuisine)}
                               </Badge>
                            )}
 
@@ -324,7 +326,7 @@ export default function RecipeCard({
                                  variant="outline"
                                  className="border-stone-200 text-stone-600 capitalize"
                               >
-                                 {data.category}
+                                 {capitalize(data.category)}
                               </Badge>
                            )}
                         </div>

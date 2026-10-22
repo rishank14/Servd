@@ -8,6 +8,7 @@ import { db } from "@/db";
 import { pantryItem } from "@/db/schema";
 import { getCurrentUser } from "@/lib/session";
 import { pantryScans } from "@/lib/arcjet";
+import { capitalize } from "@/lib/utils";
 
 type Ingredient = {
    name: string;
@@ -183,7 +184,7 @@ Rules:
          )
          .slice(0, 20)
          .map((item) => ({
-            name: String(item.name).trim().slice(0, 120),
+            name: capitalize(String(item.name).trim().slice(0, 120)),
             quantity:
                typeof item.quantity === "string" && item.quantity.trim()
                   ? item.quantity.trim().slice(0, 120)
@@ -242,7 +243,7 @@ export async function saveToPantry(formData: FormData) {
          )
          .slice(0, 20)
          .map((item) => ({
-            name: String(item.name).trim().slice(0, 120),
+            name: capitalize(String(item.name).trim().slice(0, 120)),
             quantity:
                typeof item.quantity === "string" && item.quantity.trim()
                   ? item.quantity.trim().slice(0, 120)
@@ -287,7 +288,7 @@ export async function addPantryItemManually(formData: FormData) {
       const [item] = await db
          .insert(pantryItem)
          .values({
-            name: name.slice(0, 120),
+            name: capitalize(name.slice(0, 120)),
             quantity: quantity ? quantity.slice(0, 120) : null,
             ownerId: user.id,
          })
@@ -374,7 +375,7 @@ export async function updatePantryItem(formData: FormData) {
       const [item] = await db
          .update(pantryItem)
          .set({
-            name: name.slice(0, 120),
+            name: capitalize(name.slice(0, 120)),
             quantity: quantity ? quantity.slice(0, 120) : null,
             updatedAt: new Date(),
          })

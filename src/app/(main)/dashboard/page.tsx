@@ -13,6 +13,7 @@ import {
 } from "@/actions/mealdb.actions";
 
 import { FEATURED_AREAS, getCategoryEmoji } from "@/lib/data";
+import { capitalize } from "@/lib/utils";
 
 export default async function DashboardPage() {
    const [recipeData, categoriesData, areasData] = await Promise.allSettled([
@@ -113,7 +114,7 @@ export default async function DashboardPage() {
                                     variant="outline"
                                     className="rounded-full border-[#d13228]/30 bg-[#d13228]/5 px-3 py-1 text-[#d13228]"
                                  >
-                                    {recipeOfTheDay.strCategory}
+                                    {capitalize(recipeOfTheDay.strCategory)}
                                  </Badge>
                               )}
 
@@ -123,7 +124,7 @@ export default async function DashboardPage() {
                                     className="rounded-full border-stone-200 bg-stone-50 px-3 py-1 text-stone-600"
                                  >
                                     <Globe className="mr-1.5 h-3.5 w-3.5" />
-                                    {recipeOfTheDay.strArea}
+                                    {capitalize(recipeOfTheDay.strArea)}
                                  </Badge>
                               )}
                            </div>

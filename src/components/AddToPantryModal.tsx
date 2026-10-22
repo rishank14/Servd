@@ -20,6 +20,7 @@ import {
    addPantryItemManually,
 } from "@/actions/pantry.actions";
 import { toast } from "sonner";
+import { capitalize } from "@/lib/utils";
 
 type ScannedIngredient = {
    name: string;
@@ -99,7 +100,7 @@ export default function AddToPantryModal({
          const ingredients: ScannedIngredient[] = (
             result.ingredients ?? []
          ).map((ingredient) => ({
-            name: ingredient.name ?? "",
+            name: capitalize(ingredient.name ?? ""),
             quantity: ingredient.quantity ?? "",
             confidence: ingredient.confidence,
          }));
@@ -124,7 +125,7 @@ export default function AddToPantryModal({
    const handleSaveScanned = async () => {
       const ingredients = scannedIngredients
          .map((ingredient) => ({
-            name: ingredient.name.trim(),
+            name: capitalize(ingredient.name.trim()),
             quantity: ingredient.quantity?.trim() ?? "",
          }))
          .filter((ingredient) => ingredient.name.length > 0);
@@ -159,7 +160,7 @@ export default function AddToPantryModal({
    const handleAddManual = async (event: React.FormEvent<HTMLFormElement>) => {
       event.preventDefault();
 
-      const name = manualItem.name.trim();
+      const name = capitalize(manualItem.name.trim());
 
       if (!name) {
          toast.error("Enter an ingredient name");
