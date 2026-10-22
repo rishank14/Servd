@@ -55,17 +55,12 @@ Home cooking often suffers from disconnected workflows: users search generic rec
 
 ## Demo
 
-[![Demo](https://img.shields.io/badge/YouTube-Watch%20Demo-FF0000?style=for-the-badge&logo=youtube&logoColor=white)]()
-
-<!-- Add your YouTube demo link in the badge above: [badge](YOUR_YOUTUBE_LINK) -->
-
-### Live Application
-
-Experience Servd in production:
-
-**[https://servd-rk.vercel.app](https://servd-rk.vercel.app/)**
-
-The application is deployed on **Vercel** with global edge caching, serverless compute, and a connected **Neon Serverless PostgreSQL** database.
+<p align="center">
+  <a href="https://youtu.be/6m3dhIpDx3o">
+    <img src="screenshots/LandingPage.png" alt="Servd Demo Video" width="800" />
+  </a>
+  <br/><em>▶️ Click to watch the full demo on YouTube</em>
+</p>
 
 ---
 
